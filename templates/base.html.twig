@@ -1,12 +1,61 @@
 <!DOCTYPE html>
+
 <html>
     <head>
-        <meta charset="UTF-8">
-        <title>{% block title %}Welcome!{% endblock %}</title>
-        {% block stylesheets %}{% endblock %}
+        <meta charset="UTF-8" lang="fr">
+        <title>{% block title %}KINO{% endblock %}</title>
+
+        <!--bootstrap -->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+        <link href="https://fonts.googleapis.com/css?family=Acme" rel="stylesheet"><!--font -->
+        <link rel="stylesheet" href="{{ asset('css/app.css')}}"> <!--myCss -->
+        <link rel="icon" href="{{ asset('img/logo-black.png') }}"> <!--icon -->
+
+
     </head>
     <body>
-        {% block body %}{% endblock %}
-        {% block javascripts %}{% endblock %}
+        <div class="container">
+
+            <div class="row">
+                <header>
+                    <div class="row offset-2">
+                        <a href="home">
+                            <img id="img-header" class="img-fluid" alt="kino" src="{{ asset('img/logo-white.png') }}">
+                            KINO
+                        </a>
+                    </div>
+                </header>
+
+                <nav class="nav-bar header row col-9">
+                    <a class="nav-link" href="#">HOME</a>
+                    <a class="nav-link" href="#">REGISTER</a>
+                    <a class="nav-link" href="#">LOGIN</a>
+                </nav>
+
+            </div> <!-- div row -->
+
+
+            <main>
+                <!-- for Flash messages ...-->
+
+
+                <!--My dynamicContent Here -->{% block content %}{% endblock %}
+            </main>
+
+
+        <footer>
+            <nav class="nav-bar row">
+                <a class="nav-link" href="#">Accueil</a>
+                <a class="nav-link" href="#">FAQ</a>
+                <a class="nav-link" href="#">CGU</a>
+            </nav>
+        </footer>
+
+        </div> <!-- div container-->
+
+        <script src="#"></script> <!-- jquery -->
+        <script src="#"></script> <!-- jsBootstrap -->
+        <script src="#"></script> <!-- myJs -->
+
     </body>
 </html>

@@ -1,0 +1,17 @@
+{% extends 'base.html.twig' %}
+
+
+{% block content %}
+
+
+    <div class="row home_content">
+
+        <!-- affiche 40 films au hazard de la bdd -->
+
+        {% for movie in movies %}
+           <div><a href="{{ path('movie_detail',{'id' : movie.id})}}"><img src="{{ asset('img/posters/')}}{{ movie.image }}"></a></div>
+        {% endfor %}
+
+    </div>
+
+{% endblock %}

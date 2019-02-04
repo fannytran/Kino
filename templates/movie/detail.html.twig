@@ -1,0 +1,41 @@
+{% extends 'base.html.twig' %}
+
+{% block content %}
+
+    <div class="container movie_detail_content">
+        <div class="row">
+            <div class="col-3">
+                <img id="movie_detail_img" src="{{ asset('img/posters/')}}{{ movie.image }}">
+
+                {% if app.user%}
+                    <div class="detail_btn">
+                        <button>Add A Review</button>
+                    </div>
+                    <div class="detail_btn">
+                       <button>Add To MyWatchList</button>
+                    </div>
+                {% endif %}
+
+            </div>
+            <div class="movie_detail_info col-9 ">
+                <h3 class="infolabel" for="title">title  </h3>
+                     <p id="title">{{ movie.title }}</p>
+                <h3 class="infolabel" for="rating">rating </h3>
+                     <p id="rating"> {{ movie.rating }} /10</p>
+                <h3 class="infolabel" for="actors">actors </h3>
+                     <p id="actors"> {{ movie.actors }}</p>
+                <h3 class="infolabel" for="genres">cat  </h3>
+                    <p id="genres">{{ movie.genres }}</p>
+                <h3 class="infolabel" for="title">plot </h3>
+                    <p id="plot"> {{ movie.plot }}</p>
+                <h3>Trailer</h3>
+                   <iframe width="400" height="200" src="https://www.youtube.com/embed/"></iframe>
+                <h3>Reviews</h3>
+                    <p>review du film</p>
+
+            </div>
+        </div>
+    </div>
+
+{% endblock %}
+

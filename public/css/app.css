@@ -1,0 +1,59 @@
+body{
+    background-color: black;
+    color: darkgoldenrod;
+    font-family:'Acme',sans-serif;
+}
+.container{
+    margin-left: 50px;
+    width: 1000px;
+}
+header .site-title{
+    text-transform: uppercase;
+    color: goldenrod;
+}
+header .container{
+    margin: 10px;
+}
+#img-header{
+    height: 30px;
+}
+.header{
+    margin-top: 50px;
+    margin-left: 25px;
+}
+a{
+    text-decoration: none;
+    color: goldenrod;
+}
+a:hover{
+    color: beige;
+}
+.home_content{
+    margin: 50px;
+}
+.home_content img{
+    width:200px ;
+    margin: 5px;
+}
+#movie_detail_img{
+    width:200px ;
+    margin: 5px;
+}
+.movie_detail_content{
+    margin-top: 50px;
+}
+.movie_detail_info p{
+    color: beige;
+}
+.detail_btn{
+    margin-top: 5px;
+    margin-bottom: 5px;
+    margin-left: 25px;
+}
+footer .nav-bar {
+    margin-left: 200px;
+    margin-bottom: 25px;
+}
+footer .nav-link{
+    margin-left: 50px;
+}
