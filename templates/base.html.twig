@@ -19,7 +19,7 @@
             <div class="row">
                 <header>
                     <div class="row offset-2">
-                        <a href="home">
+                        <a href="{{ path('home') }}">
                             <img id="img-header" class="img-fluid" alt="kino" src="{{ asset('img/logo-white.png') }}">
                             KINO
                         </a>
@@ -27,7 +27,7 @@
                 </header>
 
                 <nav class="nav-bar header row col-9">
-                    <a class="nav-link" href="#">HOME</a>
+                    <a class="nav-link" href="{{ path('home') }}">HOME</a>
                     <a class="nav-link" href="#">REGISTER</a>
                     <a class="nav-link" href="#">LOGIN</a>
                 </nav>
