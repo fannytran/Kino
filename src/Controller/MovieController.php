@@ -46,4 +46,25 @@ class MovieController extends AbstractController
             'movie'=>$movie
     ]);
     }
+
+    /**
+     * @Route(
+     *     "/watchlist/{id}",
+     *     name="watchlist",
+     *
+     *     )
+     * @param int $id
+     * @return \Symfony\Component\HttpFoundation\Response
+     */
+    public function addWatchList(int $id){
+
+        $repo = $this->getDoctrine()->getRepository(Movie::class);
+
+
+
+        return $this->render('movie/watchList.html.twig',[
+           'movies'=>$movies
+        ]);
+    }
+
 }

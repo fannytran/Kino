@@ -28,8 +28,13 @@
 
                 <nav class="nav-bar header row col-9">
                     <a class="nav-link" href="{{ path('home') }}">HOME</a>
-                    <a class="nav-link" href="#">REGISTER</a>
-                    <a class="nav-link" href="#">LOGIN</a>
+                    {% if app.user %}
+                        <a class="nav-link" href="{{ path('app_logout') }}">LOGOUT</a>
+                        <a class="nav-link" href="#">MY WATCHLIST</a>
+                    {% else %}
+                        <a class="nav-link" href="{{ path('app_login') }}">LOGIN</a>
+                        <a class="nav-link" href="{{ path('app_register') }}">REGISTER</a>
+                    {% endif %}
                 </nav>
 
             </div> <!-- div row -->
@@ -37,6 +42,14 @@
 
             <main>
                 <!-- for Flash messages ...-->
+                {% for label, messages in app.flashes %}
+                    {% for message in messages %}
+
+                        <div class="alert alert-{{ label }}">{{ message }}</div>
+
+                        {% endfor %}
+
+                {% endfor %}
 
 
                 <!--My dynamicContent Here -->{% block content %}{% endblock %}
@@ -45,9 +58,9 @@
 
         <footer>
             <nav class="nav-bar row">
-                <a class="nav-link" href="#">Accueil</a>
+                <a class="nav-link" href="{{ path('home') }}">Home</a>
                 <a class="nav-link" href="#">FAQ</a>
-                <a class="nav-link" href="#">CGU</a>
+                <a class="nav-link" href="#">Legal Stuff</a>
             </nav>
         </footer>
 

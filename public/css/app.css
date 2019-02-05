@@ -19,7 +19,7 @@ header .container{
 }
 .header{
     margin-top: 50px;
-    margin-left: 25px;
+    margin-left: 30px;
 }
 a{
     text-decoration: none;
@@ -49,6 +49,19 @@ a:hover{
     margin-top: 5px;
     margin-bottom: 5px;
     margin-left: 25px;
+}
+.register_title{
+    margin-top: 50px;
+}
+.register_form{
+    margin-top: 25px;
+}
+.already-register{
+    margin-top: 30px;
+    color: beige;
+}
+.already-register a{
+    color: green;
 }
 footer .nav-bar {
     margin-left: 200px;
