@@ -35,6 +35,9 @@ a:hover{
     width:200px ;
     margin: 5px;
 }
+.pagination{
+    margin-top: 15px;
+}
 #movie_detail_img{
     width:200px ;
     margin: 5px;

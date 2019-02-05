@@ -3,11 +3,22 @@
 
 {% block content %}
 
+        <div class="pagination row">
+            {% if previousPage != 0%}
+            <div class="offset-2 col-2"><a href="{{ path('home', { 'page': previousPage}) }}">Previous page </a></div>
+            {% else %}
+            <div class="offset-2 col-2"></div>
+            {% endif %}
+            {% if nextPage <= maxPages %}
+            <div class="offset-4 col-2"><a href="{{ path('home', { 'page': nextPage}) }}">Next page </a></div>
+            {% else %}
+            <div class="offset-2 col-2"></div>
+            {% endif %}
+
+         <!--   <div>total movies : {{ count }}</div> -->
+        </div>
 
     <div class="row home_content">
-
-        <!-- affiche 40 films au hazard de la bdd -->
-
         {% for movie in movies %}
            <div><a href="{{ path('movie_detail',{'id' : movie.id})}}"><img src="{{ asset('img/posters/')}}{{ movie.image }}"></a></div>
         {% endfor %}
