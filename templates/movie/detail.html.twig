@@ -12,7 +12,7 @@
                         <button>Add A Review</button>
                     </div>
                     <div class="detail_btn">
-                       <button>Add To MyWatchList</button>
+                        <a class="btn add-watchlist-btn" href="{{ path('watchlist_item',{'id':movie.id}) }}">Add To MyWatchList</a>
                     </div>
                 {% endif %}
 

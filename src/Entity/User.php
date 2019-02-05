@@ -2,6 +2,8 @@
 
 namespace App\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Security\Core\User\UserInterface;
 
@@ -37,6 +39,16 @@ class User implements UserInterface
      * @ORM\Column(type="string", length=30)
      */
     private $username;
+
+    /**
+     * @ORM\OneToMany(targetEntity="App\Entity\WatchListItem", mappedBy="user")
+     */
+    private $watchListItems;
+
+    public function __construct()
+    {
+        $this->watchListItems = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -119,6 +131,37 @@ class User implements UserInterface
     public function setUsername(string $username): self
     {
         $this->username = $username;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|WatchListItem[]
+     */
+    public function getWatchListItems(): Collection
+    {
+        return $this->watchListItems;
+    }
+
+    public function addWatchListItem(WatchListItem $watchListItem): self
+    {
+        if (!$this->watchListItems->contains($watchListItem)) {
+            $this->watchListItems[] = $watchListItem;
+            $watchListItem->setUser($this);
+        }
+
+        return $this;
+    }
+
+    public function removeWatchListItem(WatchListItem $watchListItem): self
+    {
+        if ($this->watchListItems->contains($watchListItem)) {
+            $this->watchListItems->removeElement($watchListItem);
+            // set the owning side to null (unless already changed)
+            if ($watchListItem->getUser() === $this) {
+                $watchListItem->setUser(null);
+            }
+        }
 
         return $this;
     }

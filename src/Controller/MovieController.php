@@ -53,18 +53,4 @@ class MovieController extends AbstractController
     ]);
     }
 
-    /**
-     * @Route(
-     *     "/watchlist/{id}",
-     *     name="watchlist",
-     *     )
-     * @param int $id
-     * @return \Symfony\Component\HttpFoundation\Response
-     */
-    public function addWatchList(int $id)
-    {
-
-
-    }
-
 }

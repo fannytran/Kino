@@ -27,13 +27,18 @@ a{
 }
 a:hover{
     color: beige;
+    text-decoration: none;
 }
 .home_content{
-    margin: 50px;
+    margin: 30px;
 }
 .home_content img{
     width:200px ;
     margin: 5px;
+}
+.base_username{
+    margin-top: 10px;
+    color:#BF5D54 ;
 }
 .pagination{
     margin-top: 15px;
@@ -65,6 +70,9 @@ a:hover{
 }
 .already-register a{
     color: green;
+}
+.add-watchlist-btn{
+
 }
 footer .nav-bar {
     margin-left: 200px;

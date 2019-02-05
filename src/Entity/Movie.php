@@ -2,6 +2,8 @@
 
 namespace App\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -97,6 +99,16 @@ class Movie
      * @ORM\Column(name="date_created", type="datetime", nullable=false)
      */
     private $dateCreated;
+
+    /**
+     * @ORM\OneToMany(targetEntity="App\Entity\WatchListItem", mappedBy="movie")
+     */
+    private $watchListItems;
+
+    public function __construct()
+    {
+        $this->watchListItems = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -231,6 +243,37 @@ class Movie
     public function setDateCreated(\DateTimeInterface $dateCreated): self
     {
         $this->dateCreated = $dateCreated;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|WatchListItem[]
+     */
+    public function getWatchListItems(): Collection
+    {
+        return $this->watchListItems;
+    }
+
+    public function addWatchListItem(WatchListItem $watchListItem): self
+    {
+        if (!$this->watchListItems->contains($watchListItem)) {
+            $this->watchListItems[] = $watchListItem;
+            $watchListItem->setMovie($this);
+        }
+
+        return $this;
+    }
+
+    public function removeWatchListItem(WatchListItem $watchListItem): self
+    {
+        if ($this->watchListItems->contains($watchListItem)) {
+            $this->watchListItems->removeElement($watchListItem);
+            // set the owning side to null (unless already changed)
+            if ($watchListItem->getMovie() === $this) {
+                $watchListItem->setMovie(null);
+            }
+        }
 
         return $this;
     }
