@@ -9,10 +9,10 @@
 
                 {% if app.user%}
                     <div class="detail_btn">
-                        <a class="btn add-btn" href="#">Add A Review</a>
+                        <a class="btn btn-info" href="#">Add A Review</a>
                     </div>
                     <div class="detail_btn">
-                        <a class="btn add-btn" href="{{ path('watchlist_item',{'id':movie.id}) }}">Add To MyWatchList</a>
+                        <a class="btn btn-primary" href="{{ path('watchlist_item',{'id':movie.id}) }}">Add To MyWatchList</a>
                     </div>
                 {% endif %}
 

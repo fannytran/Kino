@@ -1,0 +1,18 @@
+{% extends 'base.html.twig' %}
+
+{% block content %}
+
+    <div class="admin_movie_title offset-3"><h1>Update a Movie</h1></div>
+    <div class="admin_movie_form offset-3">
+        {{ form_start(movieForm) }}
+        {{ form_widget(movieForm) }}
+        {{ form_rest(movieForm) }}
+        <div class="row">
+            <button class="btn btn-success">Update</button>
+            {{ form_end(movieForm) }}
+            <a class="btn btn-info" href="{{ path('admin_movielist') }}">Back to Movie List</a>
+        </div>
+    </div>
+
+{% endblock %}
+

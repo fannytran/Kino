@@ -2,8 +2,12 @@
 
 {% block content %}
 
-   <div class="offset-2 admin_header"><h1>Movie List</h1></div>
-
+    <div class="container">
+        <div class="=row">
+            <div class="offset-2 admin_header"><h2>Movie List</h2></div>
+            <div><a class="offset-6 btn btn-success" href="{{ path('admin_addMovie') }}">Add a Movie</a></div>
+        </div>
+    </div>
     <table>
         <tr class="tr">
             <th>Movie_ID</th>
@@ -16,8 +20,8 @@
             <tr>
                 <td>{{ movie.id }}</td>
                 <td>{{ movie.title }}</td>
-                <td><a class="btn btn-danger" href="#">Delete</a></td>
-                <td><a class="btn btn-info" href="#">Modify</a></td>
+                <td><a class="btn btn-danger" href="{{ path('admin_removeMovie', {'id':movie.id}) }}">Delete</a></td>
+                <td><a class="btn btn-info" href="{{ path('admin_updateMovie',{'id':movie.id}) }}">Update</a></td>
             </tr>
         {% endfor %}
 

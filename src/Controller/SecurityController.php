@@ -42,8 +42,8 @@ class SecurityController extends AbstractController
             $em->persist($user);
             $em->flush();
 
-            $this->addFlash("success",'your account is created !');
-            $this->redirectToRoute('home');
+            $this->addFlash("success",'your account is created ! you can login now !');
+            return $this->redirectToRoute('home');
         }
 
 
