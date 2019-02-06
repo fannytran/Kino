@@ -2,11 +2,16 @@
 
 {% block content %}
 
-    <h1>My Watch List</h1>
-
+    <div class="offset-3">
+        <h1 class="watchlist_title">My Watch List</h1>
+    </div>
     <div class="row watchlist_content">
-        {% for movie in movies %}
-            <div><a href="{{ path('movie_detail',{'id' : movie.id})}}"><img src="{{ asset('img/posters/')}}{{ movie.image }}"></a></div>
+        {% for wlItem in wlItems %}
+             <div>
+                 <a href="{{ path('movie_detail',{'id' : wlItem.movie.id})}}">
+                     <img src="{{ asset('img/posters/')}}{{ wlItem.movie.image }}">
+                 </a>
+             </div>
         {% endfor %}
 
     </div>

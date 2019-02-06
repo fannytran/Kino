@@ -71,8 +71,16 @@ a:hover{
 .already-register a{
     color: green;
 }
-.add-watchlist-btn{
-
+.add-btn{
+    color: #aacd4e;
+    padding: 5px;
+}
+.watchlist_title{
+    margin: 20px;
+}
+.watchlist_content img{
+    width:200px ;
+    margin: 5px;
 }
 footer .nav-bar {
     margin-left: 200px;

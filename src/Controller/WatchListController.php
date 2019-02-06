@@ -15,13 +15,13 @@ class WatchListController extends AbstractController
     public function showWatchList()
     {
         $user=$this->getUser();
+        $userId=$user->getId();
         $repo= $this->getDoctrine()->getRepository(WatchListItem::class);
-        $movies=$repo->findBy([],[],[],[]);
-        //@todo
+        $wlItems=$repo->findBy(['user'=>$userId]);
+           // dd($wlItems);
         return $this->render('watch_list/watchList.html.twig', [
             'user'=>$user,
-            'movies'=>$movies,
-            'controller_name' => 'WatchListController',
+            'wlItems'=>$wlItems
         ]);
     }
 
@@ -34,6 +34,8 @@ class WatchListController extends AbstractController
      */
     public function addToWatchList(int $id)
     {
+        //@todo validate unicity of (user/movie)
+
         $user= $this->getUser();
         $repo= $this->getDoctrine()->getRepository(Movie::class);
         $movie=$repo->find($id);

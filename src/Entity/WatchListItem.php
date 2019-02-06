@@ -3,8 +3,10 @@
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 
 /**
+ * @UniqueEntity(fields={"movie","user"})
  * @ORM\Entity(repositoryClass="App\Repository\WatchListItemRepository")
  */
 class WatchListItem
@@ -18,6 +20,7 @@ class WatchListItem
 
     /**
      * @ORM\ManyToOne(targetEntity="App\Entity\User", inversedBy="watchListItems")
+     *
      */
     private $user;
 

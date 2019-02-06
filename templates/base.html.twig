@@ -30,7 +30,7 @@
                     <a class="nav-link" href="{{ path('home') }}">HOME</a>
                     {% if app.user %}
                         <a class="nav-link" href="{{ path('app_logout') }}">LOGOUT</a>
-                        <a class="nav-link" href="#">MY WATCHLIST</a>
+                        <a class="nav-link" href="{{ path('watchlist') }}">MY WATCHLIST</a>
 
                         <div class="base_username offset-3">Hi, {{ app.user.username }}</div>
                     {% else %}
