@@ -82,6 +82,16 @@ a:hover{
     width:200px ;
     margin: 5px;
 }
+.admin_header{
+    color: beige;
+}
+table{
+    color: beige;
+    text-align: center;
+}
+table tr th{
+    color: coral;
+}
 footer .nav-bar {
     margin-left: 200px;
     margin-bottom: 25px;
