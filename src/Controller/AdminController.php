@@ -94,7 +94,7 @@ class AdminController extends AbstractController
             "movie"=>$movie
         ]);
     }
-/*
+
     /**
      * @Route(
      *     "/admin/remove-movie/{id}",
@@ -103,14 +103,14 @@ class AdminController extends AbstractController
      *     requirements={"id"="\d+"},
      *     )
      */
-/*
+
     //impossible si dans une watchlist
     public function removeMovie(int $id)
     {
         $repo = $this->getDoctrine()->getRepository(Movie::class);
         $movie=$repo->find($id);
 
-        if (!$movie->getWatchListItems()->isEmpty()){
+        if ($movie->getWatchListItems()->isEmpty()){
             $em= $this->getDoctrine()->getManager();
             $em->remove($movie);
             $em->flush();
@@ -124,5 +124,5 @@ class AdminController extends AbstractController
 
         return $this->redirectToRoute('admin_movielist');
     }
-*/
+
 }
