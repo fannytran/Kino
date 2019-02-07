@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\Movie;
+use App\Repository\MovieRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
@@ -51,6 +52,42 @@ class MovieController extends AbstractController
         return $this->render('movie/detail.html.twig', [
             'movie'=>$movie
     ]);
+    }
+
+    /**
+     * @Route(
+     *     "/search",
+     *     name="search",
+     *     methods={"GET"}
+     *     )
+     */
+
+    public function search(Request $request){
+
+        $searchTitle= $request->query->get('title');
+        $searchDirector= $request->query->get('director');
+        $searchActors= $request->query->get('actors');
+
+        $searchResult = [];
+        if ($searchTitle != "" ){
+            $searchResult[]=$searchTitle;
+        }
+        if ($searchDirector != "" ){
+            $searchResult[]=$searchDirector;
+        }
+        if ($searchActors != "" ){
+            $searchResult[]=$searchActors;
+        }
+
+        $repo = $this->getDoctrine()->getRepository(Movie::class);
+        $movies = $repo->search($searchTitle,$searchDirector,$searchActors);
+
+
+        return $this->render('movie/search.html.twig',[
+            'movies'=>$movies,
+            'searchResults'=>$searchResult
+        ]);
+
     }
 
 }

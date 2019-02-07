@@ -3,6 +3,28 @@
 
 {% block content %}
 
+
+        <div class="search-form">
+
+            <form class="row" method="get" action="{{ path('search')}}">
+                <div class="search-title">
+                    <label for="input-title">Title</label>
+                    <input id="input-title" name="title" type="text">
+                </div>
+                <div class="search-director">
+                    <label for="input-director">Director</label>
+                    <input id="input-director" name="director" type="text">
+                </div>
+                <div class="search-actor">
+                    <label for="input-actors">Actors</label>
+                    <input id="input-actors"  name="actors" type="text">
+                </div>
+                <div class="search-input">
+                    <input class="btn btn-info" type="submit" value="Search">
+                </div>
+            </form>
+        </div>
+
         <div class="pagination row">
             {% if previousPage != 0%}
             <div class="offset-2 col-2"><a href="{{ path('home', { 'page': previousPage}) }}">Previous page </a></div>
