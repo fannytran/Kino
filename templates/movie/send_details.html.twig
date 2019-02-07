@@ -1,0 +1,21 @@
+{% extends 'base.html.twig' %}
+
+{% block content %}
+    <h2 class="send-details-header">Send {{ movie.title }} details to a friend</h2>
+
+
+    <div class="send-detail-info row">
+      <div>
+          <img id="movie_detail_img" src="{{ asset('img/posters/')}}{{ movie.image }}">
+      </div>
+
+        <div>
+            {{ form_start(emailForm) }}
+           {{ form_widget(emailForm) }}
+            <button class="btn btn-success">Send !</button>
+
+        </div>
+    </div>
+
+{% endblock %}
+

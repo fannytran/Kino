@@ -114,6 +114,13 @@ table tr th{
     width:200px ;
     margin: 5px;
 }
+.send-details-header{
+    margin: 50px;
+    justify-content: center;
+}
+.send-detail-info div{
+    margin: 10px;
+}
 footer .nav-bar {
     margin-left: 200px;
     margin-bottom: 25px;

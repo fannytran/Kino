@@ -2,7 +2,10 @@
 
 namespace App\Controller;
 
+use App\Entity\Email;
 use App\Entity\Movie;
+use App\Form\AutreEmailType;
+use App\Form\EmailType;
 use App\Repository\MovieRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -86,6 +89,57 @@ class MovieController extends AbstractController
         return $this->render('movie/search.html.twig',[
             'movies'=>$movies,
             'searchResults'=>$searchResult
+        ]);
+
+    }
+
+    /**
+     * @Route(
+     *     "/send-movie-details/{id}",
+     *     name="send_details",
+     *     requirements={"id"="\d+"},
+     *     methods={"GET","POST"}
+     *     )
+     */
+
+    public function sendMovieDetails(int $id, Request $request)
+    {
+
+        $user= $this->getUser();
+        $repo = $this->getDoctrine()->getRepository(Movie::class);
+        $movie=$repo->find($id);
+
+        $email= new Email();
+
+        $emailForm= $this->createForm(AutreEmailType::class, $email);
+        $emailForm->handleRequest($request);
+        //dd($emailForm);
+        if($emailForm->isSubmitted() && $emailForm->isValid()){
+
+           /*
+            $content = $this->renderView('email/movie_details_mail_content.html.twig', [
+                'movie'=>$movie,
+                'message'=>$email->getMessage()
+            ]);
+        */
+            $mail = new \Swift_Message();
+            $mail->setTo($email->getSendAddress())
+                ->setFrom($email->getUserEmail(), $user->getUsername())
+                ->setSubject($email->getSubject())
+               // ->setBody($content, 'text/html');
+                ->setBody("hello !");
+
+            $this->addFlash('success', "Thanks, your email has been sent !");
+
+            return $this->redirectToRoute('movie_detail',[
+                'id'=>$id
+            ]);
+        }
+
+        return $this->render('movie/send_details.html.twig', [
+            'emailForm'=>$emailForm->createView(),
+            'user'=>$user,
+            'movie'=>$movie,
         ]);
 
     }

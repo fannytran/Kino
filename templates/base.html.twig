@@ -33,6 +33,9 @@
                         <a class="nav-link" href="{{ path('watchlist') }}">MY WATCHLIST</a>
 
                         <div class="base_username offset-3">Hi, {{ app.user.username }}</div>
+                       <!-- {#{% if admin %}#}<a href>BackOffice</a>{#{% endif %}#}-->
+
+
                     {% else %}
                         <a class="nav-link" href="{{ path('app_login') }}">LOGIN</a>
                         <a class="nav-link" href="{{ path('app_register') }}">REGISTER</a>

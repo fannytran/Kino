@@ -14,6 +14,9 @@
                     <div class="detail_btn">
                         <a class="btn btn-primary" href="{{ path('watchlist_item',{'id':movie.id}) }}">Add To MyWatchList</a>
                     </div>
+                    <div class="detail_btn">
+                        <a class="btn btn-info" href="{{ path('send_details',{'id':movie.id}) }} ">Send Details To a friend</a>
+                    </div>
                 {% endif %}
 
             </div>

@@ -15,10 +15,6 @@ class AdminController extends AbstractController
      */
     public function showMovieList()
     {
-
-        //$user = $this->getUser();
-        //$role=$user->getRoles();
-        //dd($role);
         if($this->isGranted("ROLE_ADMIN")){
 
             $repo= $this->getDoctrine()->getRepository(Movie::class);
@@ -30,7 +26,7 @@ class AdminController extends AbstractController
 
         return $this->render('admin/movieList.html.twig', [
             'movies'=>$movies,
-            'count'=>$count
+            'count'=>$count,
         ]);
     }
 
